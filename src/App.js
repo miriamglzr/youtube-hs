@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router, Routes, Route, Outlet} from 'react-router-dom';
 import './App.css';
+import 'antd/dist/antd.css';
+import SearchInput from './components/Input';
+import {useState} from 'react';
+import VideoList from './components/VideoList';
 
-function App() {
+function App () {
+  const [search, setSearch] = useState ('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router className="App container">
+      <h1>Youtube App</h1>
+      <SearchInput setSearch={setSearch} />
+      <Routes>
+        <Route path="/" element={<div>home</div>} />
+        <Route path=":search" element={<VideoList />} />
+        <Route path=":search/:videoId" element={<div>Selected Video</div>} />
+      </Routes>
+    </Router>
   );
 }
 
