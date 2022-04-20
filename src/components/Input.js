@@ -1,6 +1,6 @@
 import {Input, Space} from 'antd';
 import {AudioOutlined} from '@ant-design/icons';
-import {useNavigate} from 'react-router-dom';
+import {Outlet, useNavigate} from 'react-router-dom';
 
 const {Search} = Input;
 
@@ -30,7 +30,7 @@ export default function SearchInput({setSearch}) {
         onSearch={onSearch}
         style={{width: 200}}
       />
-
+      <Outlet />
     </Space>
   );
 }

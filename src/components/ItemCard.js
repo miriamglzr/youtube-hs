@@ -1,59 +1,24 @@
 import React from 'react';
 import {Image, Tooltip, Card} from 'antd';
-//import {allergenIcons} from '../../database/allergens';
-
-// const peppers = value => {
-//   switch (value) {
-//     case 1:
-//       return <span className="ml-2">🌶️</span>;
-
-//     case 2:
-//       return (
-//         <span className="row ml-2">
-//           🌶️🌶️
-//         </span>
-//       );
-
-//     case 3:
-//       return (
-//         <span className="row ml-2">
-//           🌶️🌶️🌶️
-//         </span>
-//       );
-//     default:
-//       break;
-//   }
-// };
-
-// const itemAllergens = values => {
-//   return (
-//     <span>
-//       {values.map (tag => {
-//         let icon;
-//         allergenIcons.map (allergen => {
-//           if (tag.name === allergen.name) {
-//             // console.log (allergen);
-//             icon = allergen.icon;
-//           }
-//           return icon;
-//         });
-//         return (
-//           <Tooltip title={tag.name} key={tag}>
-//             <img
-//               width={24}
-//               src={icon}
-//               alt={tag.name}
-//               data-tooltip={tag.name}
-//               className="ml-1"
-//             />
-//           </Tooltip>
-//         );
-//       })}
-//     </span>
-//   );
-// };
+import {useNavigate, useSearchParams} from 'react-router-dom';
+import {useVideo} from '../context/selectedVideo';
 
 export default function ItemCard({item}) {
+  const navigate = useNavigate ();
+  const video = useVideo ();
+  let [searchParams, setSearchParams] = useSearchParams ();
+  const {id, selectedVideo, setSelectedVideo, setId} = video;
+
+  // url changes to ?q=Hello
+  const pickVideo = async item => {
+    console.log (item.title);
+    console.log (item.id.videoId);
+    await setId (item.id.videoId);
+    //setSearchParams ({v: item.id.videoId});
+    await navigate (`/watch`);
+
+    //
+  };
   return (
     item &&
     <div>
@@ -62,7 +27,7 @@ export default function ItemCard({item}) {
         className="menu-card"
         width={420}
         style={{width: '100%'}}
-        onClick={() => console.log (item.title)}
+        onClick={() => pickVideo (item)}
       >
         <Card.Meta
           description={

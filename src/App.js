@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import SearchInput from './components/Input';
 import {useState} from 'react';
 import VideoList from './components/VideoList';
+import VideoPlayer from './components/VideoPlayer';
 
 function App () {
   const [search, setSearch] = useState ('');
@@ -14,7 +15,7 @@ function App () {
       <Routes>
         <Route path="/" element={<div>home</div>} />
         <Route path=":search" element={<VideoList />} />
-        <Route path=":search/:videoId" element={<div>Selected Video</div>} />
+        <Route path="watch" element={<VideoPlayer />} />
       </Routes>
     </Router>
   );
