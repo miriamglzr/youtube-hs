@@ -10,11 +10,13 @@ export default function VideoPlayer () {
   let [searchParams, setSearchParams] = useSearchParams ();
   const video = useVideo ();
   console.log (video);
-  const {id, selectedVideo} = video;
+  const {id, selectedVideo, resetState} = video;
 
   useEffect (
-    async () => {
-      if (id !== undefined) setSearchParams ({v: id});
+    () => {
+      async function fetchData () {
+        if (id !== '') setSearchParams ({v: id});
+      }
     },
     [id]
   );
@@ -24,6 +26,7 @@ export default function VideoPlayer () {
     selectedVideo &&
     id &&
     <div>
+      <button onClick={() => resetState ()}>X</button>
       <ReactPlayer url={selectedVideo.url} />
     </div>
   );

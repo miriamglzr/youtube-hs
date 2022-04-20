@@ -1,21 +1,44 @@
-import {BrowserRouter as Router, Routes, Route, Outlet} from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+  NavLink,
+} from 'react-router-dom';
 import './App.css';
 import 'antd/dist/antd.css';
 import SearchInput from './components/Input';
-import {useState} from 'react';
+import React, {useState, Suspense} from 'react';
+
 import VideoList from './components/VideoList';
 import VideoPlayer from './components/VideoPlayer';
+import {useVideo} from './context/selectedVideo';
+
+const VideoListLazy = React.lazy (() => import ('./components/VideoList'));
+const VideoPlayerLazy = React.lazy (() => import ('./components/VideoPlayer'));
 
 function App () {
   const [search, setSearch] = useState ('');
+  const video = useVideo ();
   return (
     <Router className="App container">
-      <h1>Youtube App</h1>
+      <NavLink to="/">Youtube App</NavLink>
       <SearchInput setSearch={setSearch} />
+      {video.id &&
+        <Suspense fallback={<div>Loading...</div>}>
+          <VideoPlayerLazy />
+        </Suspense>}
       <Routes>
-        <Route path="/" element={<div>home</div>} />
-        <Route path=":search" element={<VideoList />} />
-        <Route path="watch" element={<VideoPlayer />} />
+        <Route path="/" element={<div>home <Outlet /></div>} />
+        <Route
+          path=":search"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <VideoListLazy />
+            </Suspense>
+          }
+        />
+        <Route path="watch" element={<div>PLAY</div>} />
       </Routes>
     </Router>
   );

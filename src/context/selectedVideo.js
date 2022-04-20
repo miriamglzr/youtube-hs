@@ -9,6 +9,11 @@ export function SelectedVideoProvider({children}) {
   const [selectedVideo, setSelectedVideo] = useState ('');
   const [id, setId] = useState ('');
 
+  const resetState = () => {
+    setId ('');
+    setSelectedVideo ('');
+  };
+
   const fetcher = (...args) => fetch (...args).then (res => res.json ());
 
   const url = `https://youtube.thorsteinsson.is/api/videos/${id}`;
@@ -22,7 +27,7 @@ export function SelectedVideoProvider({children}) {
 
   return (
     <SelectedVideoContext.Provider
-      value={{selectedVideo: data, setSelectedVideo, setId, id}}
+      value={{selectedVideo: data, setSelectedVideo, setId, id, resetState}}
     >
       {children}
     </SelectedVideoContext.Provider>

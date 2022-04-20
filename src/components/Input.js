@@ -1,6 +1,7 @@
 import {Input, Space} from 'antd';
 import {AudioOutlined} from '@ant-design/icons';
 import {Outlet, useNavigate} from 'react-router-dom';
+import {useVideo} from '../context/selectedVideo';
 
 const {Search} = Input;
 
@@ -15,9 +16,11 @@ const {Search} = Input;
 
 export default function SearchInput({setSearch}) {
   const navigate = useNavigate ();
+  const video = useVideo ();
   const onSearch = value => {
     console.log (value);
     setSearch (value);
+
     navigate (`/${value}`);
   };
 

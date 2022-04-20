@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {NavLink, useParams} from 'react-router-dom';
+import {NavLink, Outlet, useParams} from 'react-router-dom';
 import useSWR from 'swr';
 import ItemCard from './ItemCard';
 import styled from 'styled-components';
@@ -38,6 +38,7 @@ export default function VideoList () {
             );
           })}
         </List>
+        <Outlet />
         <button onClick={() => page !== 1 && setPage (page - 1)}>
           previous
         </button>
