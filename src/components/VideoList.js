@@ -31,7 +31,7 @@ export default function VideoList () {
         <List>
           {data.map ((item, i) => {
             return (
-              <li key={item.id.videoId}>
+              <li key={item.id.videoId} style={{cursor: 'pointer'}}>
                 {/* // <NavLink to={item.url}>{item.title}</NavLink> */}
                 <ItemCard item={item} />
               </li>

@@ -27,7 +27,9 @@ export default function VideoPlayer () {
     id &&
     <div>
       <button onClick={() => resetState ()}>X</button>
-      <ReactPlayer url={selectedVideo.url} />
+      <div className="d-flex justify-content-center">
+        <ReactPlayer url={selectedVideo.url} />
+      </div>
     </div>
   );
 }
