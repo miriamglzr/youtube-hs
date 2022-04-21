@@ -13,7 +13,7 @@ import {
 } from '@ant-design/icons';
 import {Avatar, Image} from 'antd';
 import SearchInput from './Input';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
 const Logo = styled.img`
@@ -34,7 +34,8 @@ justify-content: center;
 }
 `;
 
-export default function NavBar({setSearch}) {
+export default function NavBar({setSearch, children}) {
+  const navigate = useNavigate ();
   return (
     <div>
       <nav>
@@ -78,41 +79,48 @@ export default function NavBar({setSearch}) {
           </div>
         </div>
       </nav>
-      <div className="col-1">
-        <ButtonCol>
-          <HomeOutlined style={{fontSize: 25, margin: 8, cursor: 'pointer'}} />
-          <p>
-            Home
-          </p>
-        </ButtonCol>
-        <ButtonCol>
-          <CompassOutlined
-            style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
-          />
-          <p>
-            Explore
-          </p>
-        </ButtonCol>
-        <ButtonCol>
-          <PlayCircleOutlined
-            style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
-          />
-          <p>
-            Shorts
-          </p>
-        </ButtonCol>
-        <ButtonCol>
-          <DiffOutlined style={{fontSize: 25, margin: 8, cursor: 'pointer'}} />
-          <p>
-            Suscriptions
-          </p>
-        </ButtonCol>
-        <ButtonCol>
-          <HddOutlined style={{fontSize: 25, margin: 8, cursor: 'pointer'}} />
-          <p>
-            Library
-          </p>
-        </ButtonCol>
+      <div className="row">
+        <div className="col-1">
+          <ButtonCol onClick={() => navigate ('/')}>
+            <HomeOutlined
+              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+            />
+            <p>
+              Home
+            </p>
+          </ButtonCol>
+          <ButtonCol>
+            <CompassOutlined
+              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+            />
+            <p>
+              Explore
+            </p>
+          </ButtonCol>
+          <ButtonCol>
+            <PlayCircleOutlined
+              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+            />
+            <p>
+              Shorts
+            </p>
+          </ButtonCol>
+          <ButtonCol>
+            <DiffOutlined
+              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+            />
+            <p>
+              Suscriptions
+            </p>
+          </ButtonCol>
+          <ButtonCol>
+            <HddOutlined style={{fontSize: 25, margin: 8, cursor: 'pointer'}} />
+            <p>
+              Library
+            </p>
+          </ButtonCol>
+        </div>
+        <div className="col-11">{children}</div>
       </div>
     </div>
   );
