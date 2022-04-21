@@ -9,10 +9,12 @@ import './App.css';
 import 'antd/dist/antd.css';
 import SearchInput from './components/Input';
 import React, {useState, Suspense} from 'react';
-
+// import {ReactComponent as YoutubeIcon} from './media/YouTubeLogo.svg';
 import VideoList from './components/VideoList';
 import VideoPlayer from './components/VideoPlayer';
 import {useVideo} from './context/selectedVideo';
+
+import NavBar from './components/NavBar';
 
 const VideoListLazy = React.lazy (() => import ('./components/VideoList'));
 const VideoPlayerLazy = React.lazy (() => import ('./components/VideoPlayer'));
@@ -22,8 +24,8 @@ function App () {
   const video = useVideo ();
   return (
     <Router className="App container">
-      <NavLink to="/">Youtube App</NavLink>
-      <SearchInput setSearch={setSearch} />
+      <NavBar setSearch={setSearch} />
+
       {video.id &&
         <Suspense fallback={<div>Loading...</div>}>
           <VideoPlayerLazy />

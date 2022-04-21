@@ -9,7 +9,7 @@ const {Search} = Input;
 //   <AudioOutlined
 //     style={{
 //       fontSize: 16,
-//       color: '#1890ff',
+//       color: 'rgba(0, 0, 0, 0.45)',
 //     }}
 //   />
 // );
@@ -28,10 +28,11 @@ export default function SearchInput({setSearch}) {
     <Space direction="vertical">
 
       <Search
-        placeholder="input search text"
+        placeholder="Search"
         allowClear
         onSearch={onSearch}
-        style={{width: 200}}
+        style={{width: '50vw'}}
+        size="large"
       />
       <Outlet />
     </Space>
