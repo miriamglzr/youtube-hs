@@ -1,15 +1,42 @@
 import React, {useEffect} from 'react';
-import {videoS} from '../fakeVidInfo';
 import ReactPlayer from 'react-player';
 import {useVideo} from '../context/selectedVideo';
-import {useSearchParams} from 'react-router-dom';
-
+import {useNavigate, useSearchParams} from 'react-router-dom';
+import styled from 'styled-components';
+import {Button, notification} from 'antd';
+import {useState} from 'react';
 //import {useEffect} from 'react';
+
+const CloseButton = styled.button`
+background-color: transparent;
+border-style: solid;
+border-color: transparent;
+font-size: 25px;
+padding-top: 0
+`;
+
+const openNotification = (url, title) => {
+  console.log (title);
+  const args = {
+    message: title,
+    description: <ReactPlayer url={url} width="100%" height="100%" />,
+    duration: 0,
+  };
+  notification.open (args);
+};
+
+const Notificationbutton = ({url, title}) => (
+  <Button type="primary" onClick={() => openNotification (url, title)}>
+    Small
+  </Button>
+);
 
 export default function VideoPlayer () {
   let [searchParams, setSearchParams] = useSearchParams ();
   const video = useVideo ();
-  console.log (video);
+  const navigate = useNavigate ();
+  const [isSmall, setSmall] = useState (false);
+  //console.log (video);
   const {id, selectedVideo, resetState} = video;
 
   useEffect (
@@ -25,11 +52,34 @@ export default function VideoPlayer () {
   return (
     selectedVideo &&
     id &&
-    <div>
-      <button onClick={() => resetState ()}>X</button>
-      <div className="d-flex justify-content-center">
-        <ReactPlayer url={selectedVideo.url} />
+    <div className={`${isSmall && 'small'}`}>
+      <div className="d-flex justify-content-between">
+        <CloseButton onClick={() => setSmall (!isSmall)}>
+          {isSmall ? '<' : '>'}
+        </CloseButton>
+        {isSmall && <p>{selectedVideo.title}</p>}
+        {isSmall &&
+          <CloseButton
+            onClick={() => {
+              resetState ();
+            }}
+          >
+            x
+          </CloseButton>}
       </div>
+      <div
+        className={`d-flex justify-content-center`}
+        onClick={() => navigate ('/watch')}
+      >
+
+        <ReactPlayer
+          url={selectedVideo.url}
+          width={isSmall ? '100%' : '700px'}
+          height={isSmall ? '100%' : '400px'}
+        />
+      </div>
+
+      {/* <Notificationbutton url={selectedVideo.url} title={selectedVideo.title} /> */}
     </div>
   );
 }

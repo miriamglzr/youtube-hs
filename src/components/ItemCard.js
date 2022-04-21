@@ -46,10 +46,10 @@ export default function ItemCard({item}) {
               <div className="col-8 item-col-description">
                 <div className="row">
                   <div className="col-8">
-                    <span className="row item-name">
+                    <h5 className="row item-name">
                       {item.title}
 
-                    </span>
+                    </h5>
                   </div>
                   <div className="col item-price">
                     {item.views} views • {item.snippet.publishedAt}
@@ -57,7 +57,16 @@ export default function ItemCard({item}) {
                 </div>
 
                 <p className="item-description">{item.description}</p>
-                <span>{item.duration_raw}</span>
+                <span
+                  style={{
+                    width: 'auto',
+                    padding: '2px 5px 2px 5px',
+                    backgroundColor: '#dbdbdb',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  {item.duration_raw}
+                </span>
 
               </div>
 

@@ -15,10 +15,15 @@ import {Avatar, Image} from 'antd';
 import SearchInput from './Input';
 import {NavLink, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
+import Home from './Home';
 
 const Logo = styled.img`
 width: 150;
 height: 100;
+`;
+const Nav = styled.nav`
+min-height: 70px;
+align-content: center;
 `;
 const ButtonCol = styled.button`
 width: 100px;
@@ -38,18 +43,18 @@ export default function NavBar({setSearch, children}) {
   const navigate = useNavigate ();
   return (
     <div>
-      <nav>
-        <div className="row">
-          <div className="col-2 d-flex align-items-center justify-content-between">
+      <Nav className="row d-flex align-items-center">
+        <div className="row d-flex align-items-center">
+          <div className="col-2  justify-content-around  d-flex align-items-center">
             <MenuUnfoldOutlined
-              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              style={{fontSize: 27, margin: 8, cursor: 'pointer'}}
             />
             <NavLink to="/" className="d-flex align-items-center">
 
               <Logo
                 src={require ('../media/YouTubeLogo.png')}
                 alt="Youtube logo"
-                style={{width: 100}}
+                style={{width: 120}}
               />
             </NavLink>
           </div>
@@ -78,7 +83,7 @@ export default function NavBar({setSearch, children}) {
             />
           </div>
         </div>
-      </nav>
+      </Nav>
       <div className="row">
         <div className="col-1">
           <ButtonCol onClick={() => navigate ('/')}>
@@ -120,7 +125,7 @@ export default function NavBar({setSearch, children}) {
             </p>
           </ButtonCol>
         </div>
-        <div className="col-11">{children}</div>
+        <div className="col-11"><Home />{children}</div>
       </div>
     </div>
   );

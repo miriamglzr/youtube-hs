@@ -16,10 +16,11 @@ const VideoPlayerLazy = React.lazy (() => import ('./components/VideoPlayer'));
 
 function App () {
   const [search, setSearch] = useState ('');
+  const [isHome, setIsHome] = useState (false);
   const video = useVideo ();
   return (
     <Router className="App container">
-      <NavBar setSearch={setSearch}>
+      <NavBar setSearch={setSearch} isHome={isHome} setIsHome={setIsHome}>
 
         {video.id &&
           <Suspense fallback={<div>Loading...</div>}>
@@ -31,11 +32,11 @@ function App () {
             path=":search"
             element={
               <Suspense fallback={<div>Loading...</div>}>
-                <VideoListLazy />
+                <VideoListLazy setIsHome={setIsHome} />
               </Suspense>
             }
           />
-          <Route path="watch" element={<WatchPage />} />
+          <Route path="watch" element={<WatchPage setIsHome={setIsHome} />} />
         </Routes>
       </NavBar>
     </Router>
