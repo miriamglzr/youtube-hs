@@ -60,18 +60,17 @@
 }
 
 .small {
-  padding-top: 0 !important;
+  /* padding-top: 0 !important; */
   position: -webkit-sticky; /* Safari */
-  position: absolute;
+  position: fixed;
   z-index: 999;
   top: 10;
   right: 0;
   float: "left";
   width: 400px;
-  max-width: calc(100vw - 24px * 2);
-  margin-bottom: 16px;
-  margin-left: auto;
-  padding: 16px 24px;
+    max-width: calc(100vw - 24px * 2);
+  margin: 0px 10px 16px auto;
+  padding: 0px 24px 15px 24px;
   overflow: hidden;
   line-height: 1.5715;
   word-wrap: break-word;

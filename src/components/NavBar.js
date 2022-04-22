@@ -11,7 +11,7 @@ import {
   DiffOutlined,
   HddOutlined,
 } from '@ant-design/icons';
-import {Avatar, Image} from 'antd';
+import {Avatar, Image, Tooltip} from 'antd';
 import SearchInput from './Input';
 import {NavLink, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
@@ -62,16 +62,26 @@ export default function NavBar({setSearch, children}) {
             <SearchInput setSearch={setSearch} />
           </div>
           <div className="col-4 d-flex justify-content-around">
-            <AudioFilled style={{fontSize: 25, margin: 8, cursor: 'pointer'}} />
-            <VideoCameraAddOutlined
-              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
-            />
-            <AppstoreOutlined
-              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
-            />
-            <BellOutlined
-              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
-            />
+            <Tooltip title="Search by voice">
+              <AudioFilled
+                style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              />
+            </Tooltip>
+            <Tooltip title="Create">
+              <VideoCameraAddOutlined
+                style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              />
+            </Tooltip>
+            <Tooltip title="YouTube Apps">
+              <AppstoreOutlined
+                style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              />
+            </Tooltip>
+            <Tooltip title="Notifications">
+              <BellOutlined
+                style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              />
+            </Tooltip>
             <Avatar
               src={
                 <Image
