@@ -34,7 +34,10 @@ function App () {
               </Suspense>
             }
           />
-          <Route path="watch" element={<WatchPage isSmall={isSmall} />} />
+          <Route
+            path="watch/:params"
+            element={<WatchPage isSmall={isSmall} />}
+          />
         </Routes>
       </NavBar>
     </Router>

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import ReactPlayer from 'react-player';
+//import ReactPlayer from 'react-player';
 import {useVideo} from '../context/selectedVideo';
 import {useNavigate, useSearchParams} from 'react-router-dom';
 import styled from 'styled-components';
@@ -11,6 +11,11 @@ border-style: solid;
 border-color: transparent;
 font-size: 25px;
 padding-top: 0
+`;
+
+const Video = styled.iframe`
+  aspect-ratio: 16 / 9;
+  width: 100%;
 `;
 
 export default function VideoPlayer({isSmall, setSmall}) {
@@ -31,40 +36,50 @@ export default function VideoPlayer({isSmall, setSmall}) {
   );
   //selectedVideo && setSearchParams ({v: id});
 
-  return selectedVideo && id
-    ? <div className={`${isSmall && 'small'}`}>
-        <div className="d-flex justify-content-between">
-          <CloseButton onClick={() => setSmall (!isSmall)}>
-            {isSmall ? '<' : '>'}
-          </CloseButton>
+  //selectedVideo && id
+  // ?
+  return (
+    <div className={`${isSmall && 'small'}`}>
+      <div className="d-flex justify-content-between">
+        <CloseButton onClick={() => setSmall (!isSmall)}>
+          {isSmall ? '<' : '>'}
+        </CloseButton>
 
-          {isSmall &&
-            <CloseButton
-              onClick={() => {
-                resetState ();
-                setSmall (false);
-              }}
-            >
-              x
-            </CloseButton>}
-        </div>
-        <div
-          className={`d-flex justify-content-center`}
-          onClick={() => navigate ('/watch')}
-        >
-
+        {isSmall &&
+          <CloseButton
+            onClick={() => {
+              resetState ();
+              setSmall (false);
+            }}
+          >
+            x
+          </CloseButton>}
+      </div>
+      <div
+        className={`d-flex justify-content-center`}
+        onClick={() => navigate ('/watch')}
+      >
+        {selectedVideo &&
+          id &&
+          <Video src={`https://www.youtube.com/embed/${id}?autoplay=1`} />}
+        {/*
+        {selectedVideo &&
+          id &&
           <ReactPlayer
             url={selectedVideo.url}
             width={isSmall ? '100%' : '700px'}
             height={isSmall ? '100%' : '400px'}
-          />
-        </div>
-        {isSmall &&
-          <p>
-            {selectedVideo.title.length < 50
-              ? selectedVideo.title
-              : selectedVideo.title.split ('').splice (0, 50, '...')}
-          </p>}
+          />} */}
       </div>
-    : <div>loading...</div>;
+      {selectedVideo &&
+        id &&
+        isSmall &&
+        <p>
+          {selectedVideo.title.length < 50
+            ? selectedVideo.title
+            : selectedVideo.title.split ('').splice (0, 50, '...')}
+        </p>}
+    </div>
+  );
+  //     : <div>loading...</div>;
 }
