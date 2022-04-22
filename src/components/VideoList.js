@@ -14,7 +14,7 @@ padding-left: 0
 
 export default function VideoList () {
   const {search} = useParams ();
-  const [page, setPage] = useState (1);
+
   const fetcher = (...args) => fetch (...args).then (res => res.json ());
 
   const url = `https://youtube.thorsteinsson.is/api/search?q=${search}`;
@@ -39,11 +39,7 @@ export default function VideoList () {
           })}
         </List>
         <Outlet />
-        <button onClick={() => page !== 1 && setPage (page - 1)}>
-          previous
-        </button>
-        <div>{page}</div>
-        <button onClick={() => setPage (page + 1)}>next</button>
+
       </div>
     : console.log (data);
 }

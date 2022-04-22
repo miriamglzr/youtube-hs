@@ -50,18 +50,18 @@ export default function VideoPlayer () {
   //selectedVideo && setSearchParams ({v: id});
 
   return (
-    selectedVideo &&
     id &&
     <div className={`${isSmall && 'small'}`}>
       <div className="d-flex justify-content-between">
         <CloseButton onClick={() => setSmall (!isSmall)}>
           {isSmall ? '<' : '>'}
         </CloseButton>
-        {isSmall && <p>{selectedVideo.title}</p>}
+
         {isSmall &&
           <CloseButton
             onClick={() => {
               resetState ();
+              setSmall (false);
             }}
           >
             x
@@ -78,8 +78,12 @@ export default function VideoPlayer () {
           height={isSmall ? '100%' : '400px'}
         />
       </div>
-
-      {/* <Notificationbutton url={selectedVideo.url} title={selectedVideo.title} /> */}
+      {isSmall &&
+        <p>
+          {selectedVideo.title.length < 50
+            ? selectedVideo.title
+            : selectedVideo.title.split ('').splice (0, 50, '...')}
+        </p>}
     </div>
   );
 }
