@@ -31,11 +31,11 @@ const Notificationbutton = ({url, title}) => (
   </Button>
 );
 
-export default function VideoPlayer () {
+export default function VideoPlayer({isSmall, setSmall}) {
   let [searchParams, setSearchParams] = useSearchParams ();
   const video = useVideo ();
   const navigate = useNavigate ();
-  const [isSmall, setSmall] = useState (false);
+  //const [isSmall, setSmall] = useState (false);
   //console.log (video);
   const {id, selectedVideo, resetState} = video;
 
