@@ -5,19 +5,19 @@ import useSWR from 'swr';
 const SelectedVideoContext = createContext ();
 
 export function SelectedVideoProvider({children}) {
-  const [selectedVideo, setSelectedVideo] = useState ('');
+  // const [selectedVideo, setSelectedVideo] = useState ('');
   const [id, setId] = useState ('');
 
   const resetState = () => {
     setId ('');
-    setSelectedVideo ('');
+    //setSelectedVideo ('');
   };
 
   const fetcher = (...args) => fetch (...args).then (res => res.json ());
 
   const url = `https://youtube.thorsteinsson.is/api/videos/${id}`;
 
-  const {data, error} = useSWR (url, fetcher, {
+  const {data} = useSWR (url, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
@@ -26,7 +26,7 @@ export function SelectedVideoProvider({children}) {
 
   return (
     <SelectedVideoContext.Provider
-      value={{selectedVideo: data, setSelectedVideo, setId, id, resetState}}
+      value={{selectedVideo: data, setId, id, resetState}}
     >
       {children}
     </SelectedVideoContext.Provider>
