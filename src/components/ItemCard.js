@@ -10,8 +10,8 @@ export default function ItemCard({item, isSmall}) {
 
   // url changes to ?q=Hello
   const pickVideo = async item => {
-    console.log (item.title);
-    console.log (item.id.videoId);
+    // console.log (item.title);
+    // console.log (item.id.videoId);
     await setId (item.id.videoId);
     //setSearchParams ({v: item.id.videoId});
     !isSmall && (await navigate (`/watch`));

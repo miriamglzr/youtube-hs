@@ -67,8 +67,11 @@
   top: 10;
   right: 0;
   float: "left";
-  width: 400px;
-    max-width: calc(100vw - 24px * 2);
+  width: 30vw;
+  height:30vh;
+  min-height: 235px;
+  min-width: 400px;
+  max-width: calc(100vw - 24px * 2);
   margin: 0px 10px 16px auto;
   padding: 0px 24px 15px 24px;
   overflow: hidden;
