@@ -45,26 +45,31 @@ export default function ItemCard({item, isSmall}) {
               <div className="col-8 item-col-description">
                 <div className="row">
                   <div className="col-8">
-                    <h5 className="row item-name">
+                    <h6 className="row item-name">
                       {item.title}
 
-                    </h5>
+                    </h6>
                   </div>
-                  <div className="col item-price">
-                    {item.views} views • {item.snippet.publishedAt}
-                  </div>
+                  <p className="col item-price">
+                    <small>
+                      {item.views} views • {item.snippet.publishedAt}
+                    </small>
+                  </p>
                 </div>
 
                 <p className="item-description">{item.description}</p>
                 <span
                   style={{
                     width: 'auto',
-                    padding: '2px 5px 2px 5px',
+                    padding: '0px 5px 2px 5px',
                     backgroundColor: '#dbdbdb',
                     fontWeight: 'bold',
+                    alignContent: 'center',
                   }}
                 >
-                  {item.duration_raw ? item.duration_raw : 'N/A '}
+                  <small>
+                    {item.duration_raw ? item.duration_raw : 'N/A '}
+                  </small>
                 </span>
 
               </div>

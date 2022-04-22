@@ -64,7 +64,7 @@
   position: -webkit-sticky; /* Safari */
   position: fixed;
   z-index: 999;
-  font-size: 16px;
+  font-size: 14px;
   top: 10;
   right: 0;
   float: "left";
@@ -74,7 +74,7 @@
   min-width: 400px;
   max-width: calc(100vw - 24px * 2);
   margin: 0px 10px 16px auto;
-  padding: 0px 24px 15px 24px;
+  padding: 0px 24px 5px 24px;
   overflow: hidden;
   line-height: 1.5715;
   word-wrap: break-word;

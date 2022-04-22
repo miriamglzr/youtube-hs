@@ -19,17 +19,17 @@ const tags = [
 
 const Tag = styled.button`
 width: auto;
-min-width: 80px;
-font-size: 20px;
+min-width: 60px;
+font-size: 14px;
 background-color:  #dbdbdb;
 border-style: solid;
 border-width: 1px;
 border-radius: 20px;
 align-content: center;
 justify-content: center;
-margin: 10px;
+margin: 5px;
 
-padding: 4px 10px 4px 10px;
+padding: 2px 10px 2px 10px;
 
 &:hover{
     background-color: black;

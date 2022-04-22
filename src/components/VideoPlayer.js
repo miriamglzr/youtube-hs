@@ -8,8 +8,9 @@ const CloseButton = styled.button`
 background-color: transparent;
 border-style: solid;
 border-color: transparent;
-font-size: 25px;
-padding-top: 0
+font-size: 20px;
+padding-top: 0;
+
 `;
 
 const Video = styled.iframe`
@@ -48,7 +49,7 @@ export default function VideoPlayer({isSmall, setSmall}) {
           </CloseButton>}
       </div>
       <div
-        className={`d-flex justify-content-center ${!isSmall && 'p-4'}`}
+        className={`d-flex justify-content-center ${!isSmall && 'p-2'}`}
         onClick={() => navigate ('/watch/' + id)}
       >
         {selectedVideo &&

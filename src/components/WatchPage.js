@@ -12,15 +12,15 @@ export default function WatchPage () {
   return (
     selectedVideo &&
     id &&
-    <div className="container mt-3">
-      <h2>{selectedVideo.title}</h2>
+    <div className="container mt-2">
+      <h4>{selectedVideo.title}</h4>
       <p>
         {selectedVideo.views}
         {'    '}
         views |
         {'    '}
         <LikeOutlined
-          style={{fontSize: '20px', cursor: 'pointer', marginRight: '5px'}}
+          style={{fontSize: '16px', cursor: 'pointer', marginRight: '5px'}}
         />
         {(Number (selectedVideo.views) * 0.009).toFixed (0)}
       </p>

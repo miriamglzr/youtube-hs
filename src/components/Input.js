@@ -32,7 +32,6 @@ export default function SearchInput({setSearch}) {
         allowClear
         onSearch={onSearch}
         style={{width: '50vw'}}
-        size="large"
       />
       <Outlet />
     </Space>

@@ -22,17 +22,18 @@ width: 150;
 height: 100;
 `;
 const Nav = styled.nav`
-min-height: 70px;
+min-height: 55px;
 align-content: center;
 `;
 const ButtonCol = styled.button`
-width: 100px;
-height: 100px;
+width: 75px;
+height: 75px;
 background-color: white;
 border-style: solid;
 border-color: transparent;
 align-content: center;
 justify-content: center;
+font-size: 10px;
 
 &:hover{
     background-color: #dbdbdb;
@@ -47,14 +48,14 @@ export default function NavBar({setSearch, children}) {
         <div className="row d-flex align-items-center">
           <div className="col-2  justify-content-around  d-flex align-items-center">
             <MenuUnfoldOutlined
-              style={{fontSize: 27, margin: 8, cursor: 'pointer'}}
+              style={{fontSize: 20, margin: 8, cursor: 'pointer'}}
             />
             <NavLink to="/" className="d-flex align-items-center">
 
               <Logo
                 src={require ('../media/YouTubeLogo.png')}
                 alt="Youtube logo"
-                style={{width: 120}}
+                style={{width: 95}}
               />
             </NavLink>
           </div>
@@ -64,22 +65,42 @@ export default function NavBar({setSearch, children}) {
           <div className="col-4 d-flex justify-content-around">
             <Tooltip title="Search by voice">
               <AudioFilled
-                style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+                style={{
+                  fontSize: 20,
+                  margin: 8,
+                  cursor: 'pointer',
+                  alignSelf: 'center',
+                }}
               />
             </Tooltip>
             <Tooltip title="Create">
               <VideoCameraAddOutlined
-                style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+                style={{
+                  fontSize: 20,
+                  margin: 8,
+                  cursor: 'pointer',
+                  alignSelf: 'center',
+                }}
               />
             </Tooltip>
             <Tooltip title="YouTube Apps">
               <AppstoreOutlined
-                style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+                style={{
+                  fontSize: 20,
+                  margin: 8,
+                  cursor: 'pointer',
+                  alignSelf: 'center',
+                }}
               />
             </Tooltip>
             <Tooltip title="Notifications">
               <BellOutlined
-                style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+                style={{
+                  fontSize: 20,
+                  margin: 8,
+                  cursor: 'pointer',
+                  alignSelf: 'center',
+                }}
               />
             </Tooltip>
             <Avatar
@@ -89,7 +110,7 @@ export default function NavBar({setSearch, children}) {
                   style={{width: 32}}
                 />
               }
-              style={{fontSize: 25, margin: 8}}
+              style={{fontSize: 20, margin: 8}}
             />
           </div>
         </div>
@@ -98,7 +119,7 @@ export default function NavBar({setSearch, children}) {
         <div className="col-1">
           <ButtonCol onClick={() => navigate ('/')}>
             <HomeOutlined
-              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              style={{fontSize: 20, margin: 8, cursor: 'pointer'}}
             />
             <p>
               Home
@@ -106,7 +127,7 @@ export default function NavBar({setSearch, children}) {
           </ButtonCol>
           <ButtonCol>
             <CompassOutlined
-              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              style={{fontSize: 20, margin: 8, cursor: 'pointer'}}
             />
             <p>
               Explore
@@ -114,7 +135,7 @@ export default function NavBar({setSearch, children}) {
           </ButtonCol>
           <ButtonCol>
             <PlayCircleOutlined
-              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              style={{fontSize: 20, margin: 8, cursor: 'pointer'}}
             />
             <p>
               Shorts
@@ -122,14 +143,14 @@ export default function NavBar({setSearch, children}) {
           </ButtonCol>
           <ButtonCol>
             <DiffOutlined
-              style={{fontSize: 25, margin: 8, cursor: 'pointer'}}
+              style={{fontSize: 20, margin: 8, cursor: 'pointer'}}
             />
             <p>
               Suscriptions
             </p>
           </ButtonCol>
           <ButtonCol>
-            <HddOutlined style={{fontSize: 25, margin: 8, cursor: 'pointer'}} />
+            <HddOutlined style={{fontSize: 20, margin: 8, cursor: 'pointer'}} />
             <p>
               Library
             </p>
