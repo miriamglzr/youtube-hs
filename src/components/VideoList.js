@@ -12,7 +12,7 @@ list-style: none;
 padding-left: 0
 `;
 
-export default function VideoList () {
+export default function VideoList({isSmall}) {
   const {search} = useParams ();
 
   const fetcher = (...args) => fetch (...args).then (res => res.json ());
@@ -33,7 +33,7 @@ export default function VideoList () {
             return (
               <li key={item.id.videoId} style={{cursor: 'pointer'}}>
                 {/* // <NavLink to={item.url}>{item.title}</NavLink> */}
-                <ItemCard item={item} />
+                <ItemCard item={item} isSmall={isSmall} />
               </li>
             );
           })}

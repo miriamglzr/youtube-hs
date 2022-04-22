@@ -3,7 +3,7 @@ import {Image, Tooltip, Card} from 'antd';
 import {useNavigate, useSearchParams} from 'react-router-dom';
 import {useVideo} from '../context/selectedVideo';
 
-export default function ItemCard({item}) {
+export default function ItemCard({item, isSmall}) {
   const navigate = useNavigate ();
   const video = useVideo ();
   let [searchParams, setSearchParams] = useSearchParams ();
@@ -15,7 +15,7 @@ export default function ItemCard({item}) {
     console.log (item.id.videoId);
     await setId (item.id.videoId);
     //setSearchParams ({v: item.id.videoId});
-    await navigate (`/watch`);
+    !isSmall && (await navigate (`/watch`));
 
     //
   };
