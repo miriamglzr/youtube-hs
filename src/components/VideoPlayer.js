@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
+//import React, {useEffect} from 'react';
 //import ReactPlayer from 'react-player';
 import {useVideo} from '../context/selectedVideo';
-import {useNavigate, useSearchParams} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
-//import {useEffect} from 'react';
 
 const CloseButton = styled.button`
 background-color: transparent;
@@ -15,25 +14,18 @@ padding-top: 0
 
 const Video = styled.iframe`
   aspect-ratio: 16 / 9;
-  width: 100%;
+  width: 70%;
+  max-height: 50vh;
 `;
 
 export default function VideoPlayer({isSmall, setSmall}) {
-  let [searchParams, setSearchParams] = useSearchParams ();
+  //let [searchParams, setSearchParams] = useSearchParams ();
   const video = useVideo ();
   const navigate = useNavigate ();
   //const [isSmall, setSmall] = useState (false);
   //console.log (video);
   const {id, selectedVideo, resetState} = video;
 
-  useEffect (
-    () => {
-      async function fetchData () {
-        if (id !== '') setSearchParams ({v: id});
-      }
-    },
-    [id]
-  );
   //selectedVideo && setSearchParams ({v: id});
 
   //selectedVideo && id
@@ -56,12 +48,15 @@ export default function VideoPlayer({isSmall, setSmall}) {
           </CloseButton>}
       </div>
       <div
-        className={`d-flex justify-content-center`}
-        onClick={() => navigate ('/watch')}
+        className={`d-flex justify-content-center ${!isSmall && 'p-4'}`}
+        onClick={() => navigate ('/watch/' + id)}
       >
         {selectedVideo &&
           id &&
-          <Video src={`https://www.youtube.com/embed/${id}?autoplay=1`} />}
+          <Video
+            src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+            className={`${isSmall && 'w-100'}`}
+          />}
         {/*
         {selectedVideo &&
           id &&

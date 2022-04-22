@@ -14,7 +14,7 @@ export default function ItemCard({item, isSmall}) {
     // console.log (item.id.videoId);
     await setId (item.id.videoId);
     //setSearchParams ({v: item.id.videoId});
-    !isSmall && (await navigate (`/watch`));
+    !isSmall && (await navigate (`/watch/` + item.id.videoId));
 
     //
   };
@@ -64,7 +64,7 @@ export default function ItemCard({item, isSmall}) {
                     fontWeight: 'bold',
                   }}
                 >
-                  {item.duration_raw}
+                  {item.duration_raw ? item.duration_raw : 'N/A '}
                 </span>
 
               </div>

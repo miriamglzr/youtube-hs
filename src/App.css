@@ -64,12 +64,13 @@
   position: -webkit-sticky; /* Safari */
   position: fixed;
   z-index: 999;
+  font-size: 16px;
   top: 10;
   right: 0;
   float: "left";
   width: 30vw;
-  height:36vh;
-  min-height: 235px;
+  /* height:36vh; */
+  min-height: 285px;
   min-width: 400px;
   max-width: calc(100vw - 24px * 2);
   margin: 0px 10px 16px auto;

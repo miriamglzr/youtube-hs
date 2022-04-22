@@ -1,23 +1,14 @@
 import {LikeOutlined} from '@ant-design/icons';
 import React from 'react';
-import {useEffect} from 'react';
-import {useSearchParams} from 'react-router-dom';
+
 import {useVideo} from '../context/selectedVideo';
 
 export default function WatchPage () {
-  let [searchParams, setSearchParams] = useSearchParams ();
+  // let [searchParams, setSearchParams] = useSearchParams ();
   const video = useVideo ();
   const {id, selectedVideo} = video;
   //console.log (selectedVideo);
 
-  useEffect (
-    () => {
-      async function fetchData () {
-        setSearchParams ({v: id});
-      }
-    },
-    [id]
-  );
   return (
     selectedVideo &&
     id &&
