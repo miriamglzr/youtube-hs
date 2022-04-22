@@ -20,6 +20,7 @@ export default function WatchPage () {
   );
   return (
     selectedVideo &&
+    id &&
     <div className="container mt-3">
       <h2>{selectedVideo.title}</h2>
       <p>

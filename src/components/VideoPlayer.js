@@ -50,6 +50,7 @@ export default function VideoPlayer () {
   //selectedVideo && setSearchParams ({v: id});
 
   return (
+    selectedVideo &&
     id &&
     <div className={`${isSmall && 'small'}`}>
       <div className="d-flex justify-content-between">
