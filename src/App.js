@@ -3,9 +3,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 
 import React, {useState, Suspense} from 'react';
-// import {ReactComponent as YoutubeIcon} from './media/YouTubeLogo.svg';
-import VideoList from './components/VideoList';
-import VideoPlayer from './components/VideoPlayer';
+
 import {useVideo} from './context/selectedVideo';
 
 import NavBar from './components/NavBar';

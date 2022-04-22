@@ -1,13 +1,12 @@
 import React from 'react';
-import {Image, Tooltip, Card} from 'antd';
-import {useNavigate, useSearchParams} from 'react-router-dom';
+import {Image, Card} from 'antd';
+import {useNavigate} from 'react-router-dom';
 import {useVideo} from '../context/selectedVideo';
 
 export default function ItemCard({item, isSmall}) {
   const navigate = useNavigate ();
   const video = useVideo ();
-  let [searchParams, setSearchParams] = useSearchParams ();
-  const {id, selectedVideo, setSelectedVideo, setId} = video;
+  const {setId} = video;
 
   // url changes to ?q=Hello
   const pickVideo = async item => {

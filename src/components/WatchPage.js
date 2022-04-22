@@ -7,7 +7,7 @@ import {useVideo} from '../context/selectedVideo';
 export default function WatchPage () {
   let [searchParams, setSearchParams] = useSearchParams ();
   const video = useVideo ();
-  const {id, selectedVideo, resetState} = video;
+  const {id, selectedVideo} = video;
   console.log (selectedVideo);
 
   useEffect (

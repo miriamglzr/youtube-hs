@@ -1,5 +1,4 @@
-import {useState} from 'react';
-import {NavLink, Outlet, useParams} from 'react-router-dom';
+import {Outlet, useParams} from 'react-router-dom';
 import useSWR from 'swr';
 import ItemCard from './ItemCard';
 import styled from 'styled-components';
