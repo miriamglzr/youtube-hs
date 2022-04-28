@@ -13,6 +13,7 @@ import { useVideo } from "./context/selectedVideo";
 
 import NavBar from "./components/NavBar";
 import WatchPage from "./components/WatchPage";
+import LandPage from "./components/LandPage";
 
 const VideoListLazy = React.lazy(() => import("./components/VideoList"));
 const VideoPlayerLazy = React.lazy(() => import("./components/VideoPlayer"));
@@ -31,15 +32,7 @@ function App() {
 					</Suspense>
 				)}
 				<Routes>
-					<Route
-						path="/"
-						element={
-							<div>
-								{" "}
-								<Outlet />
-							</div>
-						}
-					/>
+					<Route path="/" element={<LandPage />} />
 					<Route
 						path=":search"
 						element={
