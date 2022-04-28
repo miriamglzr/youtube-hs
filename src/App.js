@@ -21,6 +21,7 @@ function App() {
 	const [search, setSearch] = useState("");
 	const [isSmall, setSmall] = useState(false);
 	const video = useVideo();
+
 	return (
 		<Router className="App container">
 			<NavBar setSearch={setSearch} search={search}>
