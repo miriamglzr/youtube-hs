@@ -27,7 +27,7 @@ function App() {
 					</Suspense>
 				)}
 				<Routes>
-					<Route path="/" element={<LandPage />} />
+					<Route path="/" element={<LandPage isSmall={isSmall} />} />
 					<Route
 						path=":search"
 						element={
