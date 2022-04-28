@@ -12,7 +12,7 @@ export default function WatchPage() {
 	//get videoId from params
 	useEffect(() => {
 		setId(videoId);
-	}, [videoId]);
+	}, [videoId, setId]);
 
 	return (
 		selectedVideo &&
